@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/libs/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <title>Hello, world!</title>
+    </head>
+    <body>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                    <form id="fm" method="post" novalidate>
+                        <div class="fitem">
+                            <label>First Name:</label>
+                            <input name="Firstname" id="firstname" class="easyui-textbox" required="true">
+                        </div>
+                        <div class="fitem">
+                            <label>Last Name:</label>
+                            <input name="Lastname" id="lastname" class="easyui-textbox" required="true">
+                        </div>
+                        <div class="fitem">
+                            <label>Avatar  :</label>
+                            <input type='file' id="avatar" onchange="readURL(this);" />
+                            <img id="blah"  alt="your image" />
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save">Add</button>
+                         <button type="button" class="btn btn-primary" id="edit">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End modal -->
+        <div id="block-loading">
+            <div>
+                loadding...
+            </div>
+        </div>
+
+        <div id="login-block" class="login">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" name="email" value="peter@klaven" placeholder="Enter email">
+                            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" value="cityslicka" placeholder="Password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="container views require-auth" id="user-block">
+            <div class="row">
+                <div class="col-10 text-center">
+                    <h1>Danh sách user</h1>
+                </div>
+            </div>
+            <div class="row">
+                             <div class="col-4">
+               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+ Add User
+</button>
+                </div>
+
+            </div>
+
+            <div class="row" id="users">
+            </div>
+            <div class="row">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination" id="user-page">
+                  </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script  type="text/javascript">
+            function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        </script>
+        <script src="js/libs/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/libs/popper.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/libs/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <!-- Optional JavaScript -->
+        <script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+    </body>
+</html>
